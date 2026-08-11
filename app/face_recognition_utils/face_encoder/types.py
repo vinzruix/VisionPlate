@@ -9,3 +9,13 @@ from app.face_recognition_utils.face_locator.types import FaceLocated
 class FaceEncoded:
     face_located: FaceLocated
     encodings: ndarray
+
+
+@dataclass(frozen=True)
+class ComparisonResult:
+    tolerance: float
+    confidence: float
+
+    @property
+    def is_true(self):
+        return self.confidence > self.tolerance
