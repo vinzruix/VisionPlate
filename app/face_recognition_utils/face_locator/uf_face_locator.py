@@ -3,7 +3,7 @@ from numpy import ndarray
 from uniface import YOLOv5Face, Face
 from uniface.constants import YOLOv5FaceWeights
 from app.face_recognition_utils.face_locator.base import FaceLocatorBase
-from app.face_recognition_utils.types import FaceLocated
+from app.face_recognition_utils.face_locator.types import FaceLocated
 
 
 class UFFaceLocator(FaceLocatorBase):
