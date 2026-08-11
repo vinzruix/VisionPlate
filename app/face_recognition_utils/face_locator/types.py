@@ -3,11 +3,10 @@ from dataclasses import dataclass
 from numpy import ndarray
 
 
-@dataclass
+@dataclass(frozen=True)
 class FaceLocated:
     landmarks: ndarray
     confidence: float
     bbox: ndarray
-    embedding: ndarray
 
 

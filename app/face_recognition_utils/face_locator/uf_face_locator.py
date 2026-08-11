@@ -1,6 +1,5 @@
-from typing import List
 from numpy import ndarray
-from uniface import YOLOv5Face, Face
+from uniface import YOLOv5Face
 from uniface.constants import YOLOv5FaceWeights
 from app.face_recognition_utils.face_locator.base import FaceLocatorBase
 from app.face_recognition_utils.face_locator.types import FaceLocated
@@ -16,10 +15,9 @@ class UFFaceLocator(FaceLocatorBase):
             nms_mode='torchvision',
             providers=None)
 
-    def detect(self, image: ndarray) -> List[FaceLocated]:
+    def detect(self, image: ndarray) -> list[FaceLocated]:
         faces = self.detector_model.detect(image)
 
         return [FaceLocated(landmarks=face.landmarks,
                              confidence=face.confidence,
-                             bbox=face.bbox,
-                             embedding=face.embedding) for face in faces]
+                             bbox=face.bbox) for face in faces]

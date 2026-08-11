@@ -10,7 +10,7 @@ class UFFaceSpoofer(FaceSpooferBase):
         self.spoofer_model = MiniFASNet()
 
     def check_spoofing(self, image: ndarray, face: FaceLocated) -> SpoofResult:
-        result = self.spoofer_model.predict(image=image, bbox=FaceLocated.bbox)
+        result = self.spoofer_model.predict(image=image, bbox=face.bbox)
         return SpoofResult(confidence=result.confidence,
                            face_located=face,
                            is_real=result.is_real)
